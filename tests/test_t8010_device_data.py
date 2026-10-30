@@ -23,7 +23,7 @@ BOARDS = {
 STEPS = {'copy@1', 'bluetool-hcd@1', 'smartio-from-kernelcache@1', 'im4p-payload@1', 'z2fw-from-mtprops@1',
          'z2fw-from-mtprops@2', 'z2fw-from-mtfw@1'}
 # Touch firmware the device tree requests (firmware-name); J171 shares the iPad 7 DT with J172.
-TOUCH = {'d11': 'dfrmtfw-d11-c1f5e-2.bin', 'd111': 'dfrmtfw-d111-c1f5e-2.bin',
+TOUCH = {'d101': 'dfrmtfw-d101-c1f5d-2.bin', 'd11': 'dfrmtfw-d11-c1f5e-2.bin', 'd111': 'dfrmtfw-d111-c1f5e-2.bin',
          'j171': 'dfrmtfw-j172-k1f19-6.bin', 'j172': 'dfrmtfw-j172-k1f19-6.bin'}
 
 
