@@ -13,7 +13,7 @@ struct RootView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: roomy ? 30 : 22) {
                     header
@@ -38,14 +38,13 @@ struct RootView: View {
                 .padding(.top, 24).padding(.bottom, 24).frame(maxWidth: .infinity)
             }
             .id(pageIdentity)
-            .scrollDismissesKeyboard(.interactively)
             .background(Palette.background)
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 footer.frame(maxWidth: contentWidth).padding(.horizontal, roomy ? 36 : 20)
                     .padding(.top, 12).padding(.bottom, 16).frame(maxWidth: .infinity)
                     .background(Palette.background)
             }
-            .toolbar(.hidden, for: .navigationBar)
+            .navigationBarHidden(true)
             .toolbar {
                 ToolbarItem(placement: .keyboard) {
                     Button("Done") { UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil) }
