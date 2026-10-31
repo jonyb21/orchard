@@ -14,6 +14,8 @@ def plan(event, version, private, ref, run_id):
     if event == 'push' and ref == 'refs/tags/' + version and version.startswith('v'):
         tag = version
         kind = 'private-preview' if private == 'true' else 'release'
+    elif event == 'push' and ref == 'refs/heads/resize-apfs-ios15':
+        pass  # branch build: artifact only, no release
     elif event == 'workflow_dispatch':
         if private == 'true':
             if not run_id.isdigit():
