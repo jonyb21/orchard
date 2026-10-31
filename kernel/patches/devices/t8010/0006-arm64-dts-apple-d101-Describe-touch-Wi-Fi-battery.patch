@@ -162,7 +162,7 @@ index 6a9f085..3256567 100644
 +	status = "okay";
 +
 +	touchscreen: touchscreen@0 {
-+		compatible = "apple,d101-touchscreen", "apple,d111-touchscreen";
++		compatible = "apple,d111-touchscreen";
 +		reg = <0>;
 +		spi-max-frequency = <3000000>;
 +		spi-cpol;
