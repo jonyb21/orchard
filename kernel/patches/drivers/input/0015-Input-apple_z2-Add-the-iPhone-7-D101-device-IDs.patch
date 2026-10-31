@@ -17,15 +17,21 @@ Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
 diff --git a/drivers/input/touchscreen/apple_z2.c b/drivers/input/touchscreen/apple_z2.c
 --- a/drivers/input/touchscreen/apple_z2.c
 +++ b/drivers/input/touchscreen/apple_z2.c
-@@ -4344,3 +4344,4 @@ static const struct of_device_id apple_z2_of_match[] = {
+@@ -4344,6 +4344,7 @@ static const struct of_device_id apple_z2_of_match[] = {
  	{ .compatible = "apple,j172-touchscreen", .data = &apple_z2_j172_info },
  	{ .compatible = "apple,d11-touchscreen", .data = &apple_z2_d11_info },
  	{ .compatible = "apple,d111-touchscreen", .data = &apple_z2_d111_info },
 +	{ .compatible = "apple,d101-touchscreen", .data = &apple_z2_d111_info },
-@@ -4358,3 +4359,4 @@ static struct spi_device_id apple_z2_of_id[] = {
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, apple_z2_of_match);
+@@ -4358,6 +4359,7 @@ static struct spi_device_id apple_z2_of_id[] = {
  	{ .name = "j172-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_j172_info },
  	{ .name = "d11-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_d11_info },
  	{ .name = "d111-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_d111_info },
 +	{ .name = "d101-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_d111_info },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(spi, apple_z2_of_id);
 -- 
 2.43.0
