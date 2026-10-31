@@ -1,0 +1,31 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Jon Brooks <jonbrooks35@gmail.com>
+Date: Sat, 31 Oct 2026 12:00:00 +1030
+Subject: [PATCH] Input: apple_z2: Add the iPhone 7 (D101) device IDs
+
+The D101 touchscreen is described as "apple,d101-touchscreen" with
+"apple,d111-touchscreen" as fallback, so the OF match binds it with the
+D111 runtime. The SPI modalias is built from the first compatible only,
+"spi:d101-touchscreen", which no table listed, so udev never loaded the
+module. Add D101 to both tables with the D111 match data.
+
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+---
+ drivers/input/touchscreen/apple_z2.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/input/touchscreen/apple_z2.c b/drivers/input/touchscreen/apple_z2.c
+--- a/drivers/input/touchscreen/apple_z2.c
++++ b/drivers/input/touchscreen/apple_z2.c
+@@ -4344,3 +4344,4 @@ static const struct of_device_id apple_z2_of_match[] = {
+ 	{ .compatible = "apple,j172-touchscreen", .data = &apple_z2_j172_info },
+ 	{ .compatible = "apple,d11-touchscreen", .data = &apple_z2_d11_info },
+ 	{ .compatible = "apple,d111-touchscreen", .data = &apple_z2_d111_info },
++	{ .compatible = "apple,d101-touchscreen", .data = &apple_z2_d111_info },
+@@ -4358,3 +4359,4 @@ static struct spi_device_id apple_z2_of_id[] = {
+ 	{ .name = "j172-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_j172_info },
+ 	{ .name = "d11-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_d11_info },
+ 	{ .name = "d111-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_d111_info },
++	{ .name = "d101-touchscreen", .driver_data = (kernel_ulong_t)&apple_z2_d111_info },
+-- 
+2.43.0
