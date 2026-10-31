@@ -656,6 +656,10 @@ def install(plan, stream):
             point.mkdir(exist_ok=True)
             run('mount', '-t', fs, name, str(point))
             mounts.append(point)
+        for link, target in (('fd', '/proc/self/fd'), ('stdin', '/proc/self/fd/0'),
+                             ('stdout', '/proc/self/fd/1'), ('stderr', '/proc/self/fd/2')):
+            if not os.path.lexists(TARGET / 'dev' / link):
+                os.symlink(target, TARGET / 'dev' / link)
         if secrets:
             emit('step', step='account', state='done', user=set_account(TARGET, *secrets))
             secrets = None
